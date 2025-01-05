@@ -21,6 +21,7 @@ jobs:
 
     runcommandsagan:
         runs-on: ubuntu-latest
+        needs: [runcommands]
 
         steps:
             - name: Checkout the code
