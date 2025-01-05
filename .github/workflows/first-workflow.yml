@@ -1,7 +1,10 @@
 name: first 
 
 on:
-    push
+    push:
+        branches:
+            - main
+    workflow_dispatch:
 
 env:
     class: "Day 2 bootcamp"
