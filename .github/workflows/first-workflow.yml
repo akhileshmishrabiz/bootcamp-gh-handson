@@ -3,35 +3,52 @@ name: first
 on:
     push
 
+env:
+    class: "Day 2 bootcamp"
+    env_scope: "global"
+
 jobs:
-    runcommands:
+    runcommands-job1:
         runs-on: ubuntu-latest
+        env:
+            job: "runcommands"
+            env_scope: "job"
 
         steps:
             - name: Checkout the code
               uses: actions/checkout@v4
 
             - name: Run the single  commands
-              run: echo "hello world"
+              run: |
+               echo "hello world"
+               echo " scope: ${{ env.env_scope }}"
+               echo " job: ${{ env.job }}"
+               echo " step: ${{ env.step }}"
             
             - name: Run the multiple commands
+              env:
+                step: "checkout"
+                env_scope: "step"
               run: |
                 echo "this is multiple line commands"
-                exit 1
+                echo " scope: ${{ env.env_scope }}"
+                echo " job: ${{ env.job }}"
+                echo " step: ${{ env.step }}"
 
-    runcommandsagan:
-        runs-on: ubuntu-latest
-        needs: [runcommands]
 
-        steps:
-            - name: Checkout the code
-              uses: actions/checkout@v4
+    # runcommands-jon2:
+    #     runs-on: ubuntu-latest
+    #     needs: [runcommands]
 
-            - name: Run the single  commands
-              run: echo "hello world"
+    #     steps:
+    #         - name: Checkout the code
+    #           uses: actions/checkout@v4
+
+    #         - name: Run the single  commands
+    #           run: echo "hello world"
             
-            - name: Run the multiple commands
-              run: |
-                echo "this is multiple line commands"
-                echo "this is very useful"
+    #         - name: Run the multiple commands
+    #           run: |
+    #             echo "this is multiple line commands"
+    #             echo "this is very useful"
 
