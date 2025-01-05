@@ -12,7 +12,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             job: "runcommands"
-            env_scope: "job"
+            
 
         steps:
             - name: Checkout the code
