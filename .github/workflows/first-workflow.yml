@@ -17,7 +17,7 @@ jobs:
             - name: Run the multiple commands
               run: |
                 echo "this is multiple line commands"
-                echo "this is very useful"
+                exit 1
 
     runcommandsagan:
         runs-on: ubuntu-latest
