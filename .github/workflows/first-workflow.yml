@@ -40,4 +40,4 @@ jobs:
               run: echo "hello world"
             
             - name: Run the multiple commands
-              run:  echo "SECRETS VALUSE: ${{ secrets.MYSECRET }}" 
+              run:  echo ${{ secrets.KEY_VALUE }}
