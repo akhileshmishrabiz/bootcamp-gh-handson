@@ -1,0 +1,22 @@
+name: first 
+
+on:
+    push
+
+jobs:
+    runcommands:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v4
+
+            - name: Run the single  commands
+              run: echo "hello world"
+            
+            - name: Run the multiple commands
+              run: |
+                echo "this is multiple line commands"
+                echo "this is very useful"
+
+
